@@ -46,20 +46,25 @@ const lala  = {
 }
 
 const checkDeleted = function(element1,element2) {
+  var test=true
   for ( var i of element2){
-    if (element1===i) 
-       return false
-    else return true 
+     if (i===element1) 
+     test=false;
+
+  } 
+  return test;
   }
+  
      
-};
+
 
 const moviesToDisplay = [laviedesautres,lapielquehabito,amoreperros,victoria,twelveangryman,Levoyagedechihiro,lala]
 class MovieApp extends Component {
   constructor(props) {
     super(props);
     this.state = { minimumRate : 1 ,
-                  movieToDelete : [" "]}
+                  movieToDelete : []
+                }
   }
   render() { 
     return (  

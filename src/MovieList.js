@@ -1,18 +1,24 @@
 import React from 'react'
 import MovieCard from './MovieCard'
+import LoaderHOC from './LoaderHOC'
 
-const MovieList = (props) => (
-     <div className="movie-list">
-        {
-            props.movies.map((el, i) => <MovieCard  key={i} movie={el}
-                                      onDelete={ (deleted) => {
-                                      props.onDelete2(deleted)
-                           
-                                    }}
-            />)
-        }
-        <div className="new-movie-card">+</div>
-      </div>
-)
+class MovieList extends React.Component {
 
-export default MovieList
+  render()
+  {
+  return (<div className="movie-list">
+  {
+      this.props.movies.map((el, i) => <MovieCard  key={i} movie={el}
+                                onDelete={ (deleted) => {
+                                this.props.onDelete2(deleted)
+                     
+                              }}
+      />)
+  }
+  <div className="new-movie-card">+</div>
+</div>)}
+
+}
+    
+
+export default LoaderHOC(MovieList)
